@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hrms-lite-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://your-frontend.vercel.app
+    disk:
+      name: hrms-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
